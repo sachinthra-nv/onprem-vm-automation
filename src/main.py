@@ -1,30 +1,17 @@
-# onprem-vm-automation
+#author          : Sachinthra
+#date            : 20/06/2023
+#=========================================================
 
-File Name `src/main./py` -> this file contains all the code.
+import paramiko
+import time
+import select
 
----
-##### Library Used
-```py
-import paramiko # Used for SSHClient
-import time     
-import select   # Used to include TIMEOUT for reading the input
-```
-
-##### Limit For the read -> connection.recv(BYTELIMIT)
-```py
+# Limit For the read -> connection.recv(BYTELIMIT)
 BYTELIMIT=10000
-```
----
-##### ParamikoClient -> For SSH connection and other functions which can be used for READ/WRITE process
-```py
+
 class ParamikoClient:
-    # Initialize class -> Will Configure a SSH and Establish a connection.
-    # Arguments 
-    #   - hostname = IP address of the VM we need to automate
-    #   - username = User Name address of the VM we need to automate
-    #   - password = Password address of the VM we need to automate
-    #   - port     = Default post will be 22
-    def __init__(self, hostname, username, password, port=22):
+    #  Will Configure a SSH and Establish a connection.
+    def __init__(self,hostname,username,password,port=22):
         self.ssh = paramiko.SSHClient()
         self.ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy() )
         self.ssh.connect(hostname, port, username, password)
@@ -32,11 +19,8 @@ class ParamikoClient:
         
     # For declaring invoke_shell Instance
     def invoke_shell(self):
-        # Usually below commented line is used if you’re going to execute a single command
         # stdin = ssh.exec_command("")
-
-        # Note: I am using invoke_shell not exec_command 
-        # Request a pseudo-terminal from the server.
+        # Note: I am using invoke_shell not exec_command
         return self.ssh.invoke_shell()
 
     # Read the Output from the connection. 
@@ -76,19 +60,11 @@ class ParamikoClient:
         if exit:
             quit()
         return False
-```
 
----
-##### Implementing Logic
-
-```py
 # Object creation
 obj = ParamikoClient(hostname="10.14.144.67",username="cliadmin",password="onpremccs@123")
 print("Connect done")
-```
 
-###### 1. Temp Root Shell
-```py
 # this function is for creating the Temp Root shell which is Option 8 in the main menu.
 def tempRootShell():
     obj.waitForString("8. Temporary Root Shell")
@@ -98,9 +74,7 @@ def tempRootShell():
     obj.waitForString("Press [Enter] key to continue...")
     print("Done Temp Root Shell")
     # print(obj.displayEmpty())
-```
-###### 2. SCP TAR BALL
-```py
+
 # This function is for SCP APP TAR ball to the VM before installation process.
 def executeScpFile():
     obj.waitForString("2. File Operations")
@@ -118,7 +92,9 @@ def executeScpFile():
         obj.executeOption("ssmssm99")
     # Wait untill the process completes 
     obj.waitForString("Press [Enter] key to continue...",waitTime=100,interval=60*5)
-```
----
+    
+
+tempRootShell()
+# executeScpFile()
 
 
