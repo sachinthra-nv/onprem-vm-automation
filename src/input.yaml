@@ -1,0 +1,7 @@
+HOSTNAME: "10.14.144.151"
+FQDN: "op380-g10s25-vm01.hstlabs.glcp.hpecorp.net"
+USERNAME: "cliadmin"
+PASSWORD: "cliadmin@123456!"
+TARBALL_PATH: "esroot@10.14.144.19:golden-image/testing/onprem_apps_pkg-golden-1.0.0-manual-3.tar.gz"
+NTP_SERVER: "16.110.135.123"
+CLI_PASSWORD: "onpremonprem@123"

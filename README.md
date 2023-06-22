@@ -1,9 +1,49 @@
 # onprem-vm-automation
 
+## Exp
+> Before running this code `Network Setup` step should be completed.
+#### Steps to Run the program
+`app.py` is the entry point fo the program.
 
-### For Template
+To Run
+```bash 
+python3 src/app.py
+```
+After running it will show a menu.
+```bash
 
-File Name `template/main.pyy` -> this file contains all the code.
+```
+> **_NOTE:_** Currently this code cant continue from Install TAR to Cluster Setup. So, We need to re run the program and choose the next option in order to continue. 
+
+When you choose option 1, It Runs the steps like 
+1. Temp Root Shell
+1. Back To Main Menu
+1. Scp TAR File
+1. Back To Main Menu
+1. Install TAR 
+
+and for Option 2
+1. cluster Setup
+
+This code works like, Read -> check if it have given string: if it has then do this: if not read the next set of output printed and loop back.
+```py
+# In ParamikoClient class
+# string = String to search for.
+# inputString = string to write when [string] is found in the output
+# interval = For each loop is the [string] is not matched then wait for some time.
+# waitLoop = Number of times/loop it should fetch the output from the connection
+# isExit = After [waitLoop] is done if it is True the it quits the program. if false then returns False. which will be handy sometimes. 
+def waitAndExecute(self, string, inputString, isExit=True, waitLoop=5, interval=2)
+```
+
+---
+### Limitations 
+1. This code does not have any Fail Safe case written. Eg. If the Installation fails (Was not able to )
+1. There is no contineous process from Install TAR to Cluster Setup.
+---
+### Template Code Explain
+
+File Name `template/main.py` -> this file contains all the code.
 
 ---
 ##### Library Used
