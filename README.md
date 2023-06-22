@@ -1,6 +1,9 @@
 # onprem-vm-automation
 
-File Name `src/main./py` -> this file contains all the code.
+
+### For Template
+
+File Name `template/main.pyy` -> this file contains all the code.
 
 ---
 ##### Library Used
