@@ -1,0 +1,21 @@
+vms:
+  create:
+    - vm: 
+        name: jeet-144.100-glcp-onprem-combined-1.0.0-10
+        datacenter: 1
+        clustername: "Cluster-9"
+        datastore: datastore_1_10
+    - vm: 
+        name: reshmi-144.97-glcp-onprem-combined-1.0.0-10
+        datacenter: 1
+        clustername: Cluster-9
+        datastore: datastore1_7
+
+  destroy:
+    - vm: 
+        name: jeet-144.100-glcp-onprem-combined-1.0.0-10
+        datacenter: 1
+    - vm: 
+        name: reshmi-144.97-glcp-onprem-combined-1.0.0-10
+        datacenter: 1
+ovaURL: http://16.182.31.122:9000/golden-image/glcp-onprem-combined-1.0.0-10.ova

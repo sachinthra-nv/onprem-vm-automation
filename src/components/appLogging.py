@@ -20,5 +20,8 @@ def step_logger(filename):
     logger.addHandler(file_handler)
     return logger
 
+startMessage="-------------------- Connection Start ----------------------"
 logger = setup_logger('logs/logfile.log')
+logger.info(startMessage)
 stepLogger = step_logger('logs/steps.log')
+stepLogger.info(startMessage)
