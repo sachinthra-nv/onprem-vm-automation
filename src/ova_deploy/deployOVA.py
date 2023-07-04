@@ -353,5 +353,5 @@ class WebHandle(object):
         return int(100.0 * self.offset / self.st_size)
 
 
-if __name__ == "__main__":
-    sys.exit(main())
+# if __name__ == "__main__":
+#     sys.exit(main())
