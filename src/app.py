@@ -28,7 +28,7 @@ def main():
     # Reading Inputs from input.yaml
     try:
         stepLogger.info("Reading input.yaml")
-        with open("src/input.yaml", "r") as stream:
+        with open("input.yaml", "r") as stream:
             data = yaml.safe_load(stream)
             HOSTNAME = data["HOSTNAME"]
             FQDN = data["FQDN"]
