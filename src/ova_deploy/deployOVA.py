@@ -351,3 +351,7 @@ class WebHandle(object):
     # A slightly more accurate percentage
     def progress(self):
         return int(100.0 * self.offset / self.st_size)
+
+
+# if __name__ == "__main__":
+#     sys.exit(main())
